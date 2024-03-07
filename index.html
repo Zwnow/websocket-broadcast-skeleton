@@ -1,0 +1,23 @@
+<html lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <title>Websocket Example</title>
+    </head>
+    <body>
+        <script>
+            const socket = new WebSocket("ws://localhost:8080/ws");
+            socket.onopen = (event) => {
+                console.log("WebSocket connection opened:", event);
+                socket.send("Hello, WebSocket!");
+            }
+
+            socket.onmessage = (event) => {
+                console.log("Received message:", event.data);
+            }
+
+            socket.onclose = (event) => {
+                console.log("Websocket connection closed:", event);
+            }
+        </script>
+    </body>
+</html>
